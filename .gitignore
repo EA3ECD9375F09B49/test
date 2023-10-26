@@ -1,2 +1,16 @@
 
 .DS_Store
+
+.idea/
+
+encryption/base64_dec_for_env/decforenv
+
+encryption/base64_enc_for_env/encforenv
+
+encryption/hex_enc_for_env/encforenv
+
+encryption/hex_dec_for_versionCrypt/versionCryptInfo
+
+encryption/hex_dec_for_env/decforenv
+
+orderTracing/logs/

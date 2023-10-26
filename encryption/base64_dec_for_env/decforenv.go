@@ -72,30 +72,12 @@ func GetRealString(encodingAesKey string, data string, ivKey string) string {
 		ivByte = getIv(md5Str)
 	}
 
-	rs, err := AesCBCPk7Decrypt(dataTmp, getAesKey(md5Str), ivByte)
+	rs, err := AesCBCPk7Decrypt(dataTmp, []byte(encodingAesKey), ivByte)
 	if err != nil {
 		panic(err)
 	}
 
 	return string(rs)
-}
-func Md5EncodeToString(s string) string {
-	hexCode := md5.Sum([]byte(s))
-	return hex.EncodeToString(hexCode[:])
-}
-
-func getAesKey(key string) []byte {
-	if len(key) != 32 {
-		panic("error secret key")
-	}
-	return []byte(key[2:7] + key[11:15] + key[18:25])
-}
-
-func getIv(key string) []byte {
-	if len(key) != 32 {
-		panic("error secret key")
-	}
-	return []byte(key[4:9] + key[16:23] + key[25:29])
 }
 
 // Aes cbc 解密, pkcs7 填充
@@ -130,6 +112,58 @@ func AesCBCPk7Decrypt(crypted, key []byte, iv []byte) ([]byte, error) {
 	origData = PKCS7UnPadding(origData, blockSize)
 	return origData, nil
 }
+
+func Md5EncodeToString(s string) string {
+	hexCode := md5.Sum([]byte(s))
+	return hex.EncodeToString(hexCode[:])
+}
+
+func getAesKey(key string) []byte {
+	if len(key) != 32 {
+		panic("error secret key")
+	}
+	return []byte(key[2:7] + key[11:15] + key[18:25])
+}
+
+func getIv(key string) []byte {
+	if len(key) != 32 {
+		panic("error secret key")
+	}
+	return []byte(key[4:9] + key[16:23] + key[25:29])
+}
+
+//// Aes cbc 解密, pkcs7 填充
+//func AesCBCPk7Decrypt(crypted, key []byte, iv []byte) ([]byte, error) {
+//	if len(crypted) < 1 {
+//		return []byte(""), errors.New("crypted is empty")
+//	}
+//	if len(key) < 1 {
+//		return []byte(""), errors.New("key is empty")
+//	}
+//	if len(iv) < 1 {
+//		return []byte(""), errors.New("iv is empty")
+//	}
+//
+//	block, err := aes.NewCipher(key)
+//	if err != nil {
+//		return nil, err
+//	}
+//
+//	// 加入判断条件防止 panic
+//	blockSize := block.BlockSize()
+//	if len(key) < blockSize {
+//		return nil, errors.New("key too short")
+//	}
+//	if len(crypted)%blockSize != 0 {
+//		return nil, errors.New("crypto/cipher: input not full blocks")
+//	}
+//
+//	blockMode := cipher.NewCBCDecrypter(block, iv)
+//	origData := make([]byte, len(crypted))
+//	blockMode.CryptBlocks(origData, crypted)
+//	origData = PKCS7UnPadding(origData, blockSize)
+//	return origData, nil
+//}
 
 // PKCS7 填充
 func PKCS7UnPadding(plantText []byte, blockSize int) []byte {
