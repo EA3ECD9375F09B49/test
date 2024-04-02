@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<result>
+    <info>0</info>
+    <row billNo="240315019233410" playName="nice1426" gameCode="GB0022431504K" netAmount="-20" betTime="2024-03-15 01:52:19" betAmount="20" validBetAmount="20" flag="1" playType="2" currency="CNY" tableCode="B002" recalcuTime="2024-03-15 01:52:44" beforeCredit="1061.950000" betIP="122.226.102.133" platformType="AGIN" remark="" round="AGQ" result="" gameType="BAC" deviceType="1" cardindex="100" odds="0" shoecode="31921" shoe_roundindex="54" />
+    <row billNo="240315019243287" playName="nice1426" gameCode="GB0022431504L" netAmount="20" betTime="2024-03-15 01:53:11" betAmount="20" validBetAmount="20" flag="1" playType="2" currency="CNY" tableCode="B002" recalcuTime="2024-03-15 01:53:28" beforeCredit="1041.950000" betIP="122.226.102.133" platformType="AGIN" remark="" round="AGQ" result="" gameType="BAC" deviceType="1" cardindex="100" odds="0" shoecode="31921" shoe_roundindex="55" />
+    <row billNo="240315019249225" playName="nice1426" gameCode="GB0022431504M" netAmount="20" betTime="2024-03-15 01:53:45" betAmount="20" validBetAmount="20" flag="1" playType="2" currency="CNY" tableCode="B002" recalcuTime="2024-03-15 01:54:08" beforeCredit="1061.950000" betIP="122.226.102.133" platformType="AGIN" remark="" round="AGQ" result="" gameType="BAC" deviceType="1" cardindex="100" odds="0" shoecode="31921" shoe_roundindex="56" />
+    <addition>
+        <total>3</total>
+        <num_per_page>500</num_per_page>
+        <currentpage>1</currentpage>
+        <totalpage>1</totalpage>
+        <perpage>3</perpage>
+    </addition>
+</result>
