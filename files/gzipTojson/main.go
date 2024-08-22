@@ -8,6 +8,7 @@ import (
 	"golang.org/x/text/encoding/charmap"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 )
 
 func convert(utf8 []byte) (string, error) {
@@ -41,7 +42,7 @@ func main() {
 	}
 
 	for _, file := range files {
-		if !file.IsDir() {
+		if !file.IsDir() && filepath.Ext(file.Name()) == ".json" {
 			// 打印文件名
 			fmt.Println(file.Name())
 			// 打开文件

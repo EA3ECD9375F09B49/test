@@ -7,18 +7,18 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
-	"encoding/base64"
 	"encoding/hex"
 	"encoding/pem"
 	"fmt"
 	jsoniter "github.com/json-iterator/go"
 	"imrequest/utils"
 	"net/url"
+	"regexp"
 	"sort"
 	"strings"
 )
 
-//存数据时
+// 存数据时
 var ObMap = map[string]string{
 	"name":         "OBESPORT",
 	"api":          "https://djbob.merchantapi10.com",
@@ -35,18 +35,37 @@ const privPemFmt = `-----BEGIN PRIVATE KEY-----
 %s
 -----END PRIVATE KEY-----`
 
-//ob main
-//https://djpull.i9js01.com/pull/order/queryScroll?agency=false&end_time=&last_order_id=0&merchant=38425828292093166&page_size=5000&sign=g8c58b70e28PKf265b6c6KXbbea8a69d524c9cVk&start_time=
+// ob main
+// https://djpull.i9js01.com/pull/order/queryScroll?agency=false&end_time=&last_order_id=0&merchant=38425828292093166&page_size=5000&sign=g8c58b70e28PKf265b6c6KXbbea8a69d524c9cVk&start_time=
 func main() {
 
-	bb := string([]rune("1686984688604352512")[len([]rune("1686984688604352512"))-45:])
+	DescFormula := "^[^\\s][\u4e00-\u9fa5\u3001\\d\\sA-Za-z（）/\\s-]{0,48}[^\\s](,[^\\s][\u4e00-\u9fa5\u3001\\dA-Za-z（）/\\s-]{0,48}[^\\s])*$"
+	aa := "aaa（）bbb,cc（dd/ef-）"
+	r := regexp.MustCompile(DescFormula)
+	var bb string
+	if r.MatchString(aa) { //"a,b,c,d,e"
+		bb = "success"
+	}
+	fmt.Println(bb)
 
-	//私钥签名
-	signature, _ := RsaSign([]byte(fmt.Sprintf("%s%s", "", "1690707126")))
+}
 
-	aa := base64.RawStdEncoding.EncodeToString(signature)
-	fmt.Println(aa, bb)
+type Resource struct {
+	Name string
+}
 
+func dummy(initializeResource bool) {
+	var resource *Resource = nil
+	init := false
+
+	if initializeResource {
+		resource = new(Resource)
+		init = true
+	}
+
+	r := resource
+	_ = r.Name
+	fmt.Print(init)
 }
 
 func RsaSign(data []byte) ([]byte, error) {
