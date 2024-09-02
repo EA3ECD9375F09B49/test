@@ -1,6 +1,8 @@
 module estoput
 
-go 1.20
+go 1.21
+
+toolchain go1.23.0
 
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1

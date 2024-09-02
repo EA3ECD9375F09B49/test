@@ -1,0 +1,396 @@
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -303;
+ctx._source.valid_bet_amount = 303;
+ctx._source.settle_time = '2023-12-07T18:28:51+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1481966_SPRBAPACAV908212128"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.settle_time = '2023-12-07T20:50:34+08:00';
+ctx._source.flag = 1;
+ctx._source.net_amount = -200;
+ctx._source.valid_bet_amount = 200;
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482321_SPRBAPACAV908984427"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -500;
+ctx._source.valid_bet_amount = 500;
+ctx._source.settle_time = '2023-12-07T22:29:54+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482577_SPRBAPACAV909568164"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.settle_time = '2023-12-07T18:50:49+08:00';
+ctx._source.flag = 1;
+ctx._source.net_amount = -501;
+ctx._source.valid_bet_amount = 501;
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482020_SPRBAPACAV908313221"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -200;
+ctx._source.valid_bet_amount = 200;
+ctx._source.settle_time = '2023-12-07T20:30:59+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482264_SPRBAPACAV908857880"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -201;
+ctx._source.valid_bet_amount = 201;
+ctx._source.settle_time = '2023-12-07T20:10:42+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482217_SPRBAPACAV908748487"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -600;
+ctx._source.valid_bet_amount = 600;
+ctx._source.settle_time = '2023-12-07T22:29:54+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482577_SPRBAPACAV909568163"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -200;
+ctx._source.valid_bet_amount = 200;
+ctx._source.settle_time = '2023-12-07T19:51:56+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482167_SPRBAPACAV908645645"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -1000;
+ctx._source.valid_bet_amount = 1000;
+ctx._source.settle_time = '2023-12-07T23:15:56+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482695_SPRBAPACAV909878605"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -200;
+ctx._source.valid_bet_amount = 200;
+ctx._source.settle_time = '2023-12-07T19:04:49+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482050_SPRBAPACAV908383244"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.net_amount = -500;
+ctx._source.valid_bet_amount = 500;
+ctx._source.settle_time = '2023-12-07T19:51:56+08:00';
+ctx._source.flag = 1;
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482167_SPRBAPACAV908645643"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+POST game_record_4001_2023_12/_update_by_query
+{
+  "script": {
+    "source": """ 
+ctx._source.flag = 1;
+ctx._source.net_amount = -400;
+ctx._source.valid_bet_amount = 400;
+ctx._source.settle_time = '2023-12-07T23:15:56+08:00';
+ """,
+    "lang": "painless"
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "venue_bill_no.keyword": [
+              "1482695_SPRBAPACAV909878618"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "venue_name.keyword": [
+              "SPYL"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
