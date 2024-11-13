@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/md5"
@@ -8,6 +9,8 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"os"
+	"strings"
 )
 
 func main() {
@@ -17,32 +20,43 @@ func main() {
 	fmt.Println(json)
 
 	fmt.Printf("please enter decodingAesKey\n")
-	var encodingAesKey string
-	scan, err := fmt.Scan(&encodingAesKey)
+
+	reader := bufio.NewReader(os.Stdin)
+	encodingAesKey, err := reader.ReadString('\n')
 	if err != nil {
 		return
 	}
-	fmt.Printf("The decodingAesKey is %s and scan status is %d \n",
-		encodingAesKey, scan)
+	encodingAesKey = strings.Trim(encodingAesKey, "\f\t\r\n ")
+	// convert CRLF to LF
+	encodingAesKey = strings.Replace(encodingAesKey, "\n", "", -1)
+	fmt.Printf("The decodingAesKey is %s \n",
+		encodingAesKey)
 
 	fmt.Printf("please enter ivKey\n")
 	var ivKey string
-	scan, err = fmt.Scan(&ivKey)
+	ivKey, err = reader.ReadString('\n')
 	if err != nil {
 		return
 	}
-	fmt.Printf("The ivKey is %s and scan status is %d \n",
-		ivKey, scan)
+	ivKey = strings.Trim(ivKey, "\f\t\r\n ")
+	// convert CRLF to LF
+	ivKey = strings.Replace(ivKey, "\n", "", -1)
+
+	fmt.Printf("The ivKey is %s \n",
+		ivKey)
 
 	var data string
 	for {
 		fmt.Printf("please enter string to decrypt\n")
-		scan1, err := fmt.Scan(&data)
+		data, err = reader.ReadString('\n')
 		if err != nil {
 			return
 		}
-		fmt.Printf("The word to decrypt is %s and scan status is %d \n",
-			data, scan1)
+		data = strings.Trim(data, "\f\t\r\n ")
+		// convert CRLF to LF
+		data = strings.Replace(data, "\n", "", -1)
+		fmt.Printf("The word to decrypt is %s \n",
+			data)
 		decString := GetRealString(encodingAesKey, data, ivKey)
 		fmt.Printf("decString is : %v \n", decString)
 	}
@@ -60,8 +74,6 @@ func GetRealString(encodingAesKey string, data string, ivKey string) string {
 	fmt.Printf("aesKey is : %v \n", encodingAesKey)
 	fmt.Printf("md5 String is : %v \n", md5Str)
 
-	fmt.Printf("please enter ivKey\n")
-
 	ivByte := make([]byte, 0)
 	if ivKey != "no" {
 		fmt.Printf("The ivKey is %s \n",
@@ -72,7 +84,7 @@ func GetRealString(encodingAesKey string, data string, ivKey string) string {
 		ivByte = getIv(md5Str)
 	}
 
-	rs, err := AesCBCPk7Decrypt(dataTmp, []byte(encodingAesKey), ivByte)
+	rs, err := AesCBCPk7Decrypt(dataTmp, getAesKey(md5Str), ivByte)
 	if err != nil {
 		panic(err)
 	}
